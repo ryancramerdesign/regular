@@ -31,8 +31,4 @@ working with Uikit 3. Below are a few highlights you'll find in this site profil
 3. Now install ProcessWire by accessing the URL it lives in from your web browser. When
    it asks you to choose a site profile, choose the "Uikit 3 site/blog profile". 
 
-4. Optional: When the installer asks for database information, choose "utf8mb4" for 
-   charset, and "InnoDB" for database engine. If not supported by your MySQL version, 
-   it's also fine to use the "UTF-8" charset and/or "MyISAM" engine. 
-
 

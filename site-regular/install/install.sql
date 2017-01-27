@@ -7,7 +7,7 @@ CREATE TABLE `caches` (
   `expires` datetime NOT NULL,
   PRIMARY KEY (`name`),
   KEY `expires` (`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `field_body`;
 CREATE TABLE `field_body` (
@@ -15,7 +15,7 @@ CREATE TABLE `field_body` (
   `data` mediumtext NOT NULL,
   PRIMARY KEY (`pages_id`),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `field_body` (`pages_id`, `data`) VALUES('1', '<p>This is a simple <a href=\"https://processwire.com\">ProcessWire</a> site profile that is somewhat like our default site profile, but also includes a blog. It demonstrates development of various features including some recently introduced on the ProcessWire 3.x development branch. The front-end of this profile uses the <a href=\"http://www.getuikit.com\" target=\"_blank\" rel=\"noreferrer\">Uikit 3</a> library and includes a library of time-saving functions for working with Uikit 3. Below are a few highlights you\'ll find in this site profile:</p>\n\n<ul><li>Use of markup regions and the new ProcessWire functions API.</li>\n	<li>Use of Uikit 3 in template files and includes a handy PHP library of Uikit-specific functions.</li>\n	<li>Demonstrates front-end editing features on <a	data-pwid=1024	href=\"/about/front-end-editor-demo/\">this page</a>.</li>\n	<li>Uses pagination (after 10+ blog posts) and demonstrates use of comments as well.</li>\n	<li>Demonstrates use of a Page reference field, as used by categories in the blog.</li>\n	<li>The template files are easy-to-read and modify, and serve as a good platform to build from.</li>\n	<li>Demonstrates implementation of a custom hook function (see in the /site/ready.php file).</li>\n</ul>');
 INSERT INTO `field_body` (`pages_id`, `data`) VALUES('27', '<h3>The page you were looking for is not found.</h3>\n\n<p>Please use the navigation above to find the page, or use the search engine in the footer. </p>');
@@ -34,7 +34,7 @@ CREATE TABLE `field_categories` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `field_categories` (`pages_id`, `data`, `sort`) VALUES('1015', '1017', '0');
 INSERT INTO `field_categories` (`pages_id`, `data`, `sort`) VALUES('1015', '1018', '1');
@@ -73,7 +73,7 @@ CREATE TABLE `field_comments` (
   KEY `code` (`code`),
   KEY `subcode` (`subcode`),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 INSERT INTO `field_comments` (`pages_id`, `data`, `sort`, `id`, `status`, `cite`, `email`, `created`, `created_users_id`, `ip`, `user_agent`, `website`, `parent_id`, `flags`, `code`, `subcode`, `upvotes`, `downvotes`, `stars`) VALUES('1021', 'They good night the piper good night good queen white as snow they magical beans winding path up the hill dragon beautiful dress. So loud magic wand took fought angry lion ding-dong. Winding path fought ran away whale swallowed crystal ball poison apple took the piper sang twinkled.', '2', '1', '1', 'Jim', 'jim@processwire.com', '1485450830', '41', '0.0.0.0', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36', '', '0', '0', 'aeHvmkn88ncb4214OXegP8uUrQy6D5UZcaD9pPxT9gPFDdEOf1EqCM6UD6JUnY7Jtv9MPNjcPrJWUxKhyh89r1H6nywk1Se_GdwAoj2guU_9YYa9MEgiuJUekuk93YvE', 'JzPW6751GqTqk1Oh__k0IbNfOi_Nc6nYvPPa2wl6', '0', '0', NULL);
 INSERT INTO `field_comments` (`pages_id`, `data`, `sort`, `id`, `status`, `cite`, `email`, `created`, `created_users_id`, `ip`, `user_agent`, `website`, `parent_id`, `flags`, `code`, `subcode`, `upvotes`, `downvotes`, `stars`) VALUES('1021', 'LED harmonic nominal femtosecond data solid alphanumeric alphanumeric. By sampling bus recursive null. Modular timer recognition passive interval. Theory capacitance application fragmentation with supporting indeterminate. Microscopic record indeterminate scalar concept deviation system.', '3', '2', '1', 'ryan', 'ryan@processwire.com', '1485453231', '41', '0.0.0.0', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36', 'https://processwire.com', '0', '0', 'eWwAZPZHyC4JcShlKDPrr5Y_rC8sntJOildm2ecqUegXPwgfwmRhyOn5ssyQhABWwaweM74e_TApOLMQu4MGt9lSf7VcxH994ciwggF0f3lpEdJ3OMtjYe4MvW4gDzNF', 'CcaWnsxrcWYxfCgnnvYc2DEN7qU3bd_7HVm3NK_0', '0', '0', NULL);
@@ -88,7 +88,7 @@ CREATE TABLE `field_comments_votes` (
   `user_id` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`comment_id`,`ip`,`vote`),
   KEY `created` (`created`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 DROP TABLE IF EXISTS `field_date`;
@@ -97,7 +97,7 @@ CREATE TABLE `field_date` (
   `data` datetime NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `field_date` (`pages_id`, `data`) VALUES('1015', '2017-01-25 00:00:00');
 INSERT INTO `field_date` (`pages_id`, `data`) VALUES('1022', '2017-01-26 00:00:00');
@@ -110,7 +110,7 @@ CREATE TABLE `field_email` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `field_headline`;
 CREATE TABLE `field_headline` (
@@ -118,7 +118,7 @@ CREATE TABLE `field_headline` (
   `data` text NOT NULL,
   PRIMARY KEY (`pages_id`),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `field_headline` (`pages_id`, `data`) VALUES('1', 'Uikit 3 site/blog profile');
 INSERT INTO `field_headline` (`pages_id`, `data`) VALUES('27', '404 Page Not Found');
@@ -138,7 +138,7 @@ CREATE TABLE `field_images` (
   KEY `modified` (`modified`),
   KEY `created` (`created`),
   FULLTEXT KEY `description` (`description`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `field_images` (`pages_id`, `data`, `sort`, `description`, `modified`, `created`) VALUES('1002', 'psych_cartoon_4-20.jpg', '0', 'Copyright by Austin Cramer for DesignIntelligence. This is a placeholder while he makes new ones for us.', '2017-01-24 06:11:43', '2017-01-24 06:11:43');
 INSERT INTO `field_images` (`pages_id`, `data`, `sort`, `description`, `modified`, `created`) VALUES('1021', 'screen_shot_2017-01-27_at_10_46_35_am.png', '0', '', '2017-01-27 10:56:13', '2017-01-27 10:56:13');
@@ -151,7 +151,7 @@ CREATE TABLE `field_pass` (
   `salt` char(32) NOT NULL,
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=InnoDB DEFAULT CHARSET=ascii;
+) ENGINE=MyISAM DEFAULT CHARSET=ascii;
 
 DROP TABLE IF EXISTS `field_permissions`;
 CREATE TABLE `field_permissions` (
@@ -160,7 +160,7 @@ CREATE TABLE `field_permissions` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `field_process`;
 CREATE TABLE `field_process` (
@@ -168,7 +168,7 @@ CREATE TABLE `field_process` (
   `data` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`pages_id`),
   KEY `data` (`data`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `field_process` (`pages_id`, `data`) VALUES('10', '7');
 INSERT INTO `field_process` (`pages_id`, `data`) VALUES('23', '10');
@@ -202,7 +202,7 @@ CREATE TABLE `field_roles` (
   `sort` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`sort`),
   KEY `data` (`data`,`pages_id`,`sort`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `field_sidebar`;
 CREATE TABLE `field_sidebar` (
@@ -210,7 +210,7 @@ CREATE TABLE `field_sidebar` (
   `data` mediumtext NOT NULL,
   PRIMARY KEY (`pages_id`),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `field_sidebar` (`pages_id`, `data`) VALUES('1', '<h3>Requirements</h3>\n\n<p>This site profile requires ProcessWire 3.0.51 or newer, Uikit 3, and the server must be running on PHP 5.4 or newer.</p>');
 INSERT INTO `field_sidebar` (`pages_id`, `data`) VALUES('1002', '<h3>Sudo nullus</h3>\r\n\r\n<p>Et torqueo vulpes vereor luctus augue quod consectetuer antehabeo causa patria tation ex plaga ut. Abluo delenit wisi iriure eros feugiat probo nisl aliquip nisl, patria. Antehabeo esse camur nisl modo utinam. Sudo nullus ventosus ibidem facilisis saepius eum sino pneum, vicis odio voco opto.</p>');
@@ -222,7 +222,7 @@ CREATE TABLE `field_summary` (
   `data` mediumtext NOT NULL,
   PRIMARY KEY (`pages_id`),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `field_summary` (`pages_id`, `data`) VALUES('1', 'A simple blog site about nothing in particular.');
 INSERT INTO `field_summary` (`pages_id`, `data`) VALUES('1001', 'This is a placeholder page with two child pages to serve as an example. ');
@@ -238,7 +238,7 @@ CREATE TABLE `field_title` (
   PRIMARY KEY (`pages_id`),
   KEY `data_exact` (`data`(191)),
   FULLTEXT KEY `data` (`data`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `field_title` (`pages_id`, `data`) VALUES('1', 'Home');
 INSERT INTO `field_title` (`pages_id`, `data`) VALUES('2', 'Admin');
@@ -305,7 +305,7 @@ CREATE TABLE `fieldgroups` (
   `name` varchar(191) CHARACTER SET ascii NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 INSERT INTO `fieldgroups` (`id`, `name`) VALUES('2', 'admin');
 INSERT INTO `fieldgroups` (`id`, `name`) VALUES('83', 'basic-page');
@@ -328,7 +328,7 @@ CREATE TABLE `fieldgroups_fields` (
   `sort` int(11) unsigned NOT NULL DEFAULT '0',
   `data` text,
   PRIMARY KEY (`fieldgroups_id`,`fields_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '1', '0', NULL);
 INSERT INTO `fieldgroups_fields` (`fieldgroups_id`, `fields_id`, `sort`, `data`) VALUES('1', '44', '5', NULL);
@@ -379,7 +379,7 @@ CREATE TABLE `fields` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `type` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
 
 INSERT INTO `fields` (`id`, `type`, `name`, `flags`, `label`, `data`) VALUES('1', 'FieldtypePageTitle', 'title', '13', 'Title', '{\"required\":1,\"textformatters\":[\"TextformatterEntities\"],\"size\":0,\"maxlength\":255}');
 INSERT INTO `fields` (`id`, `type`, `name`, `flags`, `label`, `data`) VALUES('2', 'FieldtypeModule', 'process', '25', 'Process', '{\"description\":\"The process that is executed on this page. Since this is mostly used by ProcessWire internally, it is recommended that you don\'t change the value of this unless adding your own pages in the admin.\",\"collapsed\":1,\"required\":1,\"moduleTypes\":[\"Process\"],\"permanent\":1}');
@@ -405,7 +405,7 @@ CREATE TABLE `modules` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `class` (`class`)
-) ENGINE=InnoDB AUTO_INCREMENT=167 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=167 DEFAULT CHARSET=utf8;
 
 INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('1', 'FieldtypeTextarea', '0', '', '2017-01-24 06:11:43');
 INSERT INTO `modules` (`id`, `class`, `flags`, `data`, `created`) VALUES('2', 'FieldtypeNumber', '0', '', '2017-01-24 06:11:43');
@@ -511,7 +511,7 @@ CREATE TABLE `page_path_history` (
   PRIMARY KEY (`path`),
   KEY `pages_id` (`pages_id`),
   KEY `created` (`created`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `pages`;
 CREATE TABLE `pages` (
@@ -534,7 +534,7 @@ CREATE TABLE `pages` (
   KEY `created` (`created`),
   KEY `status` (`status`),
   KEY `published` (`published`)
-) ENGINE=InnoDB AUTO_INCREMENT=1029 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=1029 DEFAULT CHARSET=utf8;
 
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('1', '0', '1', 'home', '9', '2017-01-27 13:29:31', '41', '2017-01-24 06:11:43', '2', '2017-01-24 06:11:43', '0');
 INSERT INTO `pages` (`id`, `parent_id`, `templates_id`, `name`, `status`, `modified`, `modified_users_id`, `created`, `created_users_id`, `published`, `sort`) VALUES('2', '1', '2', 'processwire', '1035', '2017-01-24 06:12:10', '40', '2017-01-24 06:11:43', '2', '2017-01-24 06:11:43', '6');
@@ -606,7 +606,7 @@ CREATE TABLE `pages_access` (
   `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`pages_id`),
   KEY `templates_id` (`templates_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `pages_access` (`pages_id`, `templates_id`, `ts`) VALUES('32', '2', '2017-01-24 06:11:43');
 INSERT INTO `pages_access` (`pages_id`, `templates_id`, `ts`) VALUES('34', '2', '2017-01-24 06:11:43');
@@ -642,7 +642,7 @@ CREATE TABLE `pages_parents` (
   `pages_id` int(10) unsigned NOT NULL,
   `parents_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`pages_id`,`parents_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `pages_parents` (`pages_id`, `parents_id`) VALUES('2', '1');
 INSERT INTO `pages_parents` (`pages_id`, `parents_id`) VALUES('3', '1');
@@ -673,7 +673,7 @@ CREATE TABLE `pages_sortfields` (
   `pages_id` int(10) unsigned NOT NULL DEFAULT '0',
   `sortfield` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`pages_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `pages_sortfields` (`pages_id`, `sortfield`) VALUES('1016', 'name');
 
@@ -684,7 +684,7 @@ CREATE TABLE `session_login_throttle` (
   `attempts` int(10) unsigned NOT NULL DEFAULT '0',
   `last_attempt` int(10) unsigned NOT NULL,
   PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `templates`;
 CREATE TABLE `templates` (
@@ -697,7 +697,7 @@ CREATE TABLE `templates` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `fieldgroups_id` (`fieldgroups_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 
 INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('1', 'home', '1', '0', '0', '{\"useRoles\":1,\"noParents\":1,\"slashUrls\":1,\"compile\":3,\"label\":\"Home\",\"modified\":1485537359,\"ns\":\"ProcessWire\",\"roles\":[37]}');
 INSERT INTO `templates` (`id`, `name`, `fieldgroups_id`, `flags`, `cache_time`, `data`) VALUES('2', 'admin', '2', '8', '0', '{\"useRoles\":1,\"parentTemplates\":[2],\"allowPageNum\":1,\"redirectLogin\":23,\"slashUrls\":1,\"noGlobal\":1,\"compile\":3,\"modified\":1453457709,\"ns\":\"ProcessWire\"}');
