@@ -75,8 +75,8 @@ $siteTagline = $home->summary;
 			<div uk-grid>
 				<div class='uk-width-1-3@m uk-flex-last@m uk-text-center'>
 					<form class='uk-search uk-search-default' action='<?=pages()->get('template=search')->url?>' method='get'>
-						<button type='submit' class='uk-search-toggle uk-search-icon-flip' uk-search-icon></button>
-						<input type='search' id='search-query' name='q' class='uk-search-input' placeholder='Search&hellip;'>
+						<button type='submit' class='uk-search-toggle uk-search-icon-flip' aria-label='Submit' uk-search-icon></button>
+						<input type='search' id='search-query' name='q' class='uk-search-input' aria-label='Search here' placeholder='Search&hellip;'>
 					</form>
 				</div>	
 				<div class='uk-width-2-3@m uk-flex-first@m uk-text-center uk-text-left@m'>
