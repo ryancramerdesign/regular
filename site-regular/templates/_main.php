@@ -52,8 +52,6 @@ $siteTagline = $home->summary;
 				<h1 id='content-head' class='uk-margin-small-top'>
 					<?=page()->get('headline|title')?>
 				</h1>
-                <div id='content' class='uk-width-expand'>
-
                 <div id='content-body'>
 					<?=page()->body?>
 				</div>
