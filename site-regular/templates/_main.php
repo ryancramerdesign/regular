@@ -10,10 +10,11 @@ $siteTagline = $home->summary;
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title id='html-title'><?=page()->title?></title>
 	<meta name="description" content="<?=page()->summary?>">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.9/css/uikit.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.20/css/uikit.min.css" />
 	<link rel="stylesheet" href="<?=urls()->templates?>styles/main.css">
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.9/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.20/js/uikit.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.20/js/uikit-icons.min.js"></script>
 	<?php if(page()->comments): ?> 
 	<script src='<?=urls()->FieldtypeComments?>comments.min.js'></script>
 	<link rel="stylesheet" href="<?=urls()->FieldtypeComments?>comments.css">
