@@ -23,7 +23,7 @@ $siteTagline = $home->summary;
 <body id='html-body'>
 
 	<!-- MASTHEAD -->
-	<header class='uk-background-muted'>
+	<header class='uk-background-muted' role='banner'>
 		<div id='masthead' class="uk-container">
 			<h2 id='masthead-logo' class='uk-text-center uk-margin-medium-top uk-margin-small-bottom'>
 				<a href='<?=urls()->root?>'>
@@ -42,25 +42,26 @@ $siteTagline = $home->summary;
 				</div>
 			</nav>
 		</div>
-	</header>	
+	</header>
 
-	<!-- MAIN CONTENT -->
-	<main id='main' class='uk-container uk-margin uk-margin-large-bottom'>
+    <!-- MAIN WRAPPER -->
+    <div id='wrapper' class='uk-container uk-margin uk-margin-large-bottom'>
 		<?php if(page()->parent->id > $home->id) echo ukBreadcrumb(page(), [ 'class' => 'uk-visible@m' ]); ?>
 		<div class='uk-grid-large' uk-grid>
-			<div id='content' class='uk-width-expand'>
+            <!-- MAIN CONTENT -->
+            <main id='content' class='uk-width-expand'>
 				<h1 id='content-head' class='uk-margin-small-top'>
 					<?=page()->get('headline|title')?>
 				</h1>
-				<div id='content-body'>
+                <div id='content-body'>
 					<?=page()->body?>
 				</div>
-			</div>
+			</main>
 			<aside id='sidebar' class='uk-width-1-3@m'>
 				<?=page()->sidebar?>
 			</aside>
 		</div>
-	</main>
+	</div>
 
 	<?php if(config()->debug && user()->isSuperuser()): // display region debugging info ?>
 	<section id='debug' class='uk-section uk-section-muted'>	
@@ -71,13 +72,13 @@ $siteTagline = $home->summary;
 	<?php endif; ?>
 
 	<!-- FOOTER -->
-	<footer class='uk-section uk-section-secondary'>
+	<footer class='uk-section uk-section-secondary' role='contentinfo'>
 		<div id='footer' class='uk-container'>
 			<div uk-grid>
 				<div class='uk-width-1-3@m uk-flex-last@m uk-text-center'>
 					<form class='uk-search uk-search-default' action='<?=pages()->get('template=search')->url?>' method='get'>
-						<button type='submit' class='uk-search-toggle uk-search-icon-flip' uk-search-icon></button>
-						<input type='search' id='search-query' name='q' class='uk-search-input' placeholder='Search&hellip;'>
+						<button type='submit' class='uk-search-toggle uk-search-icon-flip' aria-label='Submit' uk-search-icon></button>
+						<input type='search' id='search-query' name='q' class='uk-search-input' aria-label='Search here' placeholder='Search&hellip;'>
 					</form>
 				</div>	
 				<div class='uk-width-2-3@m uk-flex-first@m uk-text-center uk-text-left@m'>
@@ -95,7 +96,7 @@ $siteTagline = $home->summary;
 	</footer>
 	
 	<!-- OFFCANVAS NAV TOGGLE -->
-	<a id='offcanvas-toggle' class='uk-hidden@m' href="#offcanvas-nav" uk-toggle>
+	<a id='offcanvas-toggle' class='uk-hidden@m' href="#offcanvas-nav" aria-label='Navigation' uk-toggle>
 		<?=ukIcon('menu', 1.3)?>
 	</a>
 
